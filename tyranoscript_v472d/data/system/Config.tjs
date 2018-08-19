@@ -56,8 +56,8 @@
 // ◆ 画面サイズ
 // scWidth に画面の幅、scHeight に画面の高さをピクセル単位で指定します。
 
-;scWidth = 960;
-;scHeight = 640;
+;scWidth = 1280;
+;scHeight = 720;
 
 // ◆ 文字表示スピード 
 // delay で指定した場合はその値が優先されます。resetdelayで元に戻ります 
