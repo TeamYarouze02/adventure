@@ -18,12 +18,12 @@
 // ◆ タイトル
 // ウィンドウのキャプション(タイトル)および
 // ブラウザの場合は、タイトルに指定されます
-;System.title = "ティラノスクリプト";
+;System.title = "グリッソムとアイディーン";
 
 
 // ◆ プロジェクト一意の識別名称　ティラノスクリプト独自設定
 // プロジェクト固有の文字列を指定してください。特に同一ドメイン上にプロジェクトを配置する場合は必ず指定してください
-;projectID = tyranoproject;
+;projectID = grissom;
 
 // ◆ リリースバージョンを数値で指定します。全角・英数字は使用できません。
 // パッチ機能において重要な役割を果たします。パッチファイルで指定されたバージョンがこの数値より大きい場合はパッチが適応されます。
@@ -56,8 +56,8 @@
 // ◆ 画面サイズ
 // scWidth に画面の幅、scHeight に画面の高さをピクセル単位で指定します。
 
-;scWidth = 1280;
-;scHeight = 720;
+;scWidth = 720;
+;scHeight = 1280;
 
 // ◆ 文字表示スピード 
 // delay で指定した場合はその値が優先されます。resetdelayで元に戻ります 
@@ -201,7 +201,7 @@
 // | |  |  | |
 // +---------+
 // image タグあるいは img タグの pos 属性で指定する前景レイヤの 位置名 (
-// left や lecft_center など ) とそれぞれに対応する 中心位置 ( x 座標 ) を
+// left や left_center など ) とそれぞれに対応する 中心位置 ( x 座標 ) を
 // 指定します。;scPositionX.位置名 = 中心位置; の形式で指定します。
 ;scPositionX.left = 160;
 ;scPositionX.left_center = 240;
@@ -223,7 +223,7 @@
 // ◆ 初期状態のメッセージレイヤの数
 // 前景レイヤと違って、0 を指定することはできません。これも必要な数だけ確保
 // するようにすべきです。laycount タグでシナリオ内でも変更できます。
-;numMessageLayers = 2;
+;numMessageLayers = 8;
 
 
 // ◆ 初期状態でメッセージレイヤを表示するかどうか
@@ -267,9 +267,8 @@
 // メッセージレイヤの色を指定します。frameOpacity には 0 ～ 255 の数値で、
 // 不透明度を指定します。メッセージ枠用の画像が指定されている場合は無効で
 // す。
-;frameColor = 0x000000; // position タグの color 属性に相当
-;frameOpacity = 128;  // position タグの opacity 属性に相当
-
+;frameColor = 0xffffff; // position タグの color 属性に相当
+;frameOpacity = 153;  // position タグの opacity 属性に相当
 
 
 // ◆ 自動改行/改ページ
@@ -287,7 +286,7 @@
 
 // ◆ 文字の大きさ
 // デフォルトの文字の大きさ ( 高さ ) を pixel 単位で指定します。
-;defaultFontSize = 24;  // deffont タグの size 属性に相当
+;defaultFontSize = 30;  // deffont タグの size 属性に相当
 
 
 // ◆ 行間
@@ -308,12 +307,11 @@
 // userFace の設定を変更し、適用したい場合はシステム変数ファイル
 // カンマで区切って複数のフォントを指定することができます。その場合は、最初
 // の方に書いたフォントが存在すれば、優先されます。
-;userFace = メイリオ,sans-serif; // deffont タグの face 属性に相当
-
+;userFace = しっぽりアンチックMedium; // deffont タグの face 属性に相当
 
 // ◆ 文字の色
 // デフォルトの文字の色を 0xRRGGBB 形式で指定します。
-;defaultChColor = 0xffffff;  // deffont タグの color 属性に相当
+;defaultChColor = 0x000000;  // deffont タグの color 属性に相当
 
 
 // ◆ 文字をボールドにするか
@@ -352,7 +350,7 @@
 
 // ◆ 縁取りの色
 // 縁取りの色を 0xRRGGBB 形式で指定します。
-;defaultEdgeColor = 0x000000;  // deffont タグの edgecolor に属性に相当
+;defaultEdgeColor = 0xffffff;  // deffont タグの edgecolor に属性に相当
 
 
 // ◆ リンクの強調色 （未実装）

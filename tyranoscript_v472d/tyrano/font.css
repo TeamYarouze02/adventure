@@ -1,4 +1,13 @@
 /*ウェブフォントを使用する場合はここに定義を追加して下さい*/
+@charset "UTF-8";
+
+@font-face {
+	font-family: "しっぽりアンチックMedium";
+	src:url("../data/others/ShipporiAntique-Medium.otf") format("opentype");
+	font-weight: normal;
+	font-style: normal;
+}
+
 
 @font-face {
 	font-family:"mfrules";
