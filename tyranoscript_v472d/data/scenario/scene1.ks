@@ -11,7 +11,6 @@
 [clearfix]
 [start_keyconfig]
 
-
 ;tempra_cameraはlayopt使ってレイヤーのセッティングをしないと表示されない。
 [layopt layer=base visible=true]
 [layopt layer=0    visible=true]
@@ -32,24 +31,49 @@
 ;message1:吹き出し（の予定）
 ;message2:吹き出し（の予定）
 ;message3:吹き出し（の予定）
+;message4:"Score:"部表示レイヤー
+;message5:スコア表示レイヤー
+;massage6:回答可能回数表示
 
 [position layer=message0 left=20 top=100 width=680 height=256 page=fore visible=true]
-[position layer=message1 left=20 top=120 width=680 height=256 page=fore visible=true]
-[position layer=message2 left=20 top=120 width=680 height=256 page=fore visible=true]
-[position layer=message3 left=20 top=120 width=680 height=256 page=fore visible=true]
+[position layer=message1 left=20 top=100 width=680 height=256 page=fore visible=true]
+[position layer=message2 left=20 top=100 width=680 height=256 page=fore visible=true]
+[position layer=message3 left=20 top=100 width=680 height=256 page=fore visible=true]
+[position layer=message4 left=10 top=10 width=720 height=100 page=fore visible=true opacity=0]
+[position layer=message5 left=100 top=10 width=720 height=100 page=fore visible=true opacity=0]
+[position layer=message6 left=500 top=1100 width=720 height=100 page=fore visible=true opacity=0]
 
 ;文字が表示される領域を調整
 [position layer=message0 page=fore margint=60 marginl=20 marginr=20 marginb=10]
+[position layer=message1 page=fore margint=60 marginl=20 marginr=20 marginb=10]
+[position layer=message2 page=fore margint=60 marginl=20 marginr=20 marginb=10]
 [position layer=message3 page=fore margint=60 marginl=20 marginr=20 marginb=10]
+[position layer=message4 page=fore margint=0 marginl=0 marginr=0 marginb=0]
+[position layer=message5 page=fore margint=0 marginl=0 marginr=0 marginb=0]
 
-;メッセージウィンドウの表示
+;"Score:"部表示
+[current layer=message4]
+[layopt layer=message4 visible=true]
+Score:
+
+;回答可能回数表示
+[current layer=message6]
+[layopt layer=message6 visible=true]
+[emb exp="sf.comm"]
+
+;スコア表示
+[current layer=message5]
+[layopt layer=message5 visible=true]
+[emb exp="sf.score"]
+
+[current layer=message0]
 ;一応ナレーター
 [layopt layer=message0 visible=true]
 
 テスト開始。[p]
 
 ;レイヤを指定してアニメーション
-[anim layer=message0 top="-=256" effect=easeOutBack time=500 ]
+[anim layer=message0 top="-=270" effect=easeOutBack time=500 ]
 
 ;アニメを待つ
 [wa]
@@ -58,8 +82,8 @@
 [current layer=message1]
 吹き出しのように見せるてすと！[p]
 
-[anim layer=message0 top="-=266" effect=easeOutBack time=500 ]
-[anim layer=message1 top="-=256" effect=easeOutBack time=500 ]
+[anim layer=message0 top="-=270" effect=easeOutBack time=500 ]
+[anim layer=message1 top="-=270" effect=easeOutBack time=500 ]
 
 [layopt layer=message2 visible=true]
 [current layer=message2]
@@ -67,12 +91,22 @@
 吹き出しは上へ上へと持ち上げられる感じです。
 テキストエリアは吹き出し画像にします。[p]
 
+スコアを加算してみる。[p]
+
+[current layer=message5]
+[eval exp="sf.score=sf.score + 250"]
+[er]
+[emb exp="sf.score"]
 
 ;レイヤー開放してみる。
+[current layer=message2]
 テキストレイヤーを一旦開放します。[p]
 [freeimage layer=message0]
 [freeimage layer=message1]
 [freeimage layer=message2]
+
+
+
 
 ;キャラクターの名前が表示される文字領域
 [ptext name=chara_name_area layer=message1 color=black size=30 x=50 y=140]
@@ -88,11 +122,10 @@
 [chara_new name=ideen storage="chara/ideen/i_normal.png" jname=アイディーン]
 
 [layopt layer=message3 visible=true]
-[position layer=message3 left=20 top=140 width=680 height=256 page=fore visible=true]
 [current layer=message3]
 
 ;tempura_cameraのZ深度
-[tcamera_setting z=200,120,110,70 zoom=2.5,1,1,1]
+[tcamera_setting z=100,80,70,60 zoom=1.4,1,1,1 manager=true]
 
 [jump target=*test]
 #
@@ -130,7 +163,7 @@
 [current layer=message3]
 
 ;カメラプラグインでズームしてみる。
-[tcamera name=grissom zoom=1.2]
+[tcamera name=grissom zoom=1.5]
 
 
 #【グリッソム教授】
@@ -160,302 +193,275 @@
 誰かを呼んで助けてもらわなきゃ！[p]
 『ひと』を『よぶ』んだ！[p]
 
-[tcamera name=ideen zoom=1.2]
-
-#
-テスト終わり。[p]
+[tcamera name=ideen zoom=1.5]
 
 [glink  color="blue"  storage="scene1.ks"  size="20"  x="160"  width="400"  y="300"  text="よぶ　ひと"  target="*selectinterest"  ]
 [glink  color="blue"  storage="scene1.ks"  size="20"  x="160"  width="400"  y="370"  text="よぶ　ひと"  target="*selectinterest"  ]
 [glink  color="blue"  storage="scene1.ks"  size="20"  x="160"  width="400"  y="440"  text="よぶ　ひと"  target="*selectinterest"  ]
 [s]
+
 *selectinterest
 
-[chara_mod  name="grissom" face="happy"  ]
-#【グリッソム教授】
-わー。興味あるなんて、嬉しいなー。[p]
-#
-・・・・・[p]
-まぁ、作ってみたい気持ちはあるけど、むずかしいんでしょ？[p]
-プログラミングとかやったことないし、、、[p]
+;問題番号は#、00は章の番号、_00は問題数
+;#01_01
 
-[chara_mod name="grissom" face="default"]
+;正解（解答が正解ならばここから。不正解だとその下にある不正解へ）
 
 #【グリッソム教授】
-そんな君に、耳寄りな情報があるんだけど[p]
-ききたい？　ききたいよね？[p]
-#
-いや、べつに
-#【グリッソム教授】
-[cm]
-[font size=40]
-[delay speed=160]
-ティラノスクリプトー[p]
-[delay speed=30]
-[resetfont]
+アーーーイディーーーーン！！[p]
 
-#
-へぇー。それはいいね。[p]
-せっかく作ったらたくさんの人に遊んでもらいたいもんね。[p]
+;<bgm:アイディーンのテーマ>
+#【アイディーン】
+♪才色兼備でそれでいて[p]
+	♪コスプレ大好きメイドなの[p]
+♪変幻自在のポケットで[p]
+	♪マヌケな教授のお手伝い[p]
+♪その名はその名は[p]
+♪アイディーン！　だべっ♥[p]
+
+;不正解（解答が不正解だといくつかのヒントを与える）
 
 #【グリッソム教授】
-ウィンドウズ用のPCアプリケーションはもちろん。[p]
-マック用のアプリケーションにだって対応するわよ。[p]
-あと、HTML5だから、ブラウザゲームとしても発表できるわよ。[p]
-ウェブサイトに貼り付けて遊んでもらえるから、気軽にゲームをプレイしてもらうことができるね。[p]
-主要なブラウザはすべてサポートしているから、安心してね。[p]
-#
-やるなぁ。。[p]
+やばい眼の前真っ白になってきたぞ…！[p]
+落ち着け！落ち着いて…。[p]
+…そうだ！うちにはメイドさんがいたんだ！[p]
+『めいど』を『よぶ』んだ！[p]
 
-でも、最近スマホが復旧してて、僕のサイトにもスマホで訪れる人が増えたんだけど[p]
-スマホからは遊べない？[p]
+
+[tcamera name=grissom zoom=1.5]
+#【グリッソム教授】
+だべっ♥[p]
+じゃないよ！早く助けてよ！アイディーン！[p]
+
+#【アイディーン】
+Oh…[p]
+
+<本の隙間から出た教授の髪の毛（寝癖）を掴んで思い切り引っ張る>[p]
+
+#【アイディーン】
+どぉおおお～りゃァ～っッ！必殺！大・雪・山・落ぉとしいぃ～！！！[p]
+
+;SE:轟音
+<ドドドドドド…>[p]
+<積み上がった本が崩れる音とともに教授が出てきた>[p]
 
 #【グリッソム教授】
-ティラノスクリプトで作ったゲームはスマートフォンからでも遊べるよ！[p]
-アイフォーン、アンドロイドはもちろん。アイパッドとかのタブレットでも問題ないわ。[p]
-#
-おぉー。[p]
+はぁ、はぁ…[p]
+アイディーンありがとう～。[p]
+死ぬかと思った…。[p]
+
+<気を抜いたところで、崩れかけの山から最後に本が落ちてきた>[p]
+
+;SE:コン！
 
 #【グリッソム教授】
-AppStoreやGooglePlayに向けてアプリ化して販売することもできるから[p]
-#
-おぉぉ、、やっとの貧困生活から脱出できるかも[p]
-#【グリッソム教授】
-まぁ、おもしろいゲームつくらないと、売れもしないけどな！[p]
-#
-くっ。。[p]
+イテ！[p]
+…なんだよもう…？[p]
+…あれ？[p]
+
+#【アイディーン】
+？[p]
+どうすたんだせんせ？[p]
 
 #【グリッソム教授】
-じゃあ、次に場面を移動してみるね[p]
-廊下に移動するよ[p]
-[bg  time="3000"  method="crossfade" storage="rouka.jpg"  ]
+あ！これ！[p]
+ずっと探してたんだ！この日記！なんて偶然だ！[p]
+懐かしい…ジャン君、あれからどうしてるかな…。[p]
 
-#
-お、廊下に移動したね。[p]
+#【アイディーン】
+あ～！あのこ…。[p]
 
-#【グリッソム教授】
-寒いよぉ〜。はやく教室に戻ろう。[p]
+;SE:玄関の呼び鈴：リンリン…
 
-[bg  time="1000" method="slide"  storage="room.jpg" ]
-#
-あれ、今、場面の移動がちょっと違ったね。[p]
-#【グリッソム教授】
-うん。急いでたからね。[p]
-ティラノスクリプトでは、いろいろな演出を加える事ができて[p]
-画面を切り替えるだけでも１０種類以上の演出がつかえるよ。[p]
-#
-ふむ。便利だ[p]
+#【アイディーン】
+いげね！お客さまだ。[p]
+は～～い！[p]
 
 #【グリッソム教授】
-次にメッセージの表示方法を変えてみるね[p]
-ティラノスクリプトでは、今みたいなアドベンチャーゲームの他に[r]
-ビジュアルノベルのような全画面表示のゲームもつくれるよ。[p]
+ぶちまけちゃった本の整理はアイディーンに押し付けるとして、ちょっとこの日記を見返してみよう。[p]
+;#01_02
 
-#
+;正解
+<教授はぱらぱらとページをながめた。[p]
+教授が手にとった冊子の表紙には「日記 １８５３」とある>[p]
+もう三年も前になるのか…ということはジャン君は…。[p]
 
-;キャラクター非表示
-[chara_hide name="grissom"]
+<アイディーンがすぐ戻ってきて壁から首だけ出して>[p]
 
+;不正解
+せっかく見つけたんだ。この『にっき』を『よむ』かな…[p]
+よし！出てきた『さっし』を『ひらく』としよう！[p]
 
-;メッセージを全画面に切り替え
-[position layer="message0" left=20 top=40 width=920 height=560 page=fore visible=true ]
-
-どうかな? 物語をじっくり読ませたい場合はこの方式が便利ですね[l][r]
-ティラノスクリプトは非常に強力で、柔軟な表現が可能です。[l][cm]
-
-[font size=40]文字のサイズを変更したり
-[l][r]
-[resetfont]
-[font color="pink"]色を変更したり
-[resetfont][l][r]
-
-[ruby text=る]ル[ruby text=び]ビを[ruby text=ふ]振ることだって[ruby text=かん]簡[ruby text=たん]単にできます[l]
-[cm]
-
-;たて書きにする
-[position vertical=true layer=message0 page=fore margint="45" marginl="0" marginr="70" marginb="60"]
-
-このように縦書きで記述することもできます。[r][l]
-縦書きでも、横書きの時と同じ機能を使うことができます。[r][l]
-
-;横書きに戻す
-[position vertical=false]
-
-横書きと縦書きをシーンによって使い分けることもできます[r][l]
-じゃあ、アドベンチャー形式に戻しますね[p]
-
-;メッセージボックスを元に戻す
-[position layer="message0" left=20 top=400 width=920 height=200 page=fore visible=true]
-
-@chara_show name="grissom"
+#【アイディーン】
+せんせぇ！サイモンさんて方がお見えですだ。[p]
+しってるが？[p]
 
 #【グリッソム教授】
-メッセージボックスは、自分の好きな画像を使うこともできるよ[p]
+サイモン？…サイモンさいもん…知らないなぁ…まあいいや、出てみよう。[p]
 
-
-
-[font color="0x454D51"]
-[deffont color="0x454D51"]
-
-;名前の表示位置も変更
-[free name="chara_name_area" layer="message0"]
-
-[position layer=message0 width=960 height=210 top=430 left=0]
-[position layer=message0 page=fore frame="frame.png" margint="45" marginl="50" marginr="70" marginb="60" opacity=230 ]
-
-
-;名前枠の設定
-[ptext name="chara_name_area" layer="message0"  color="0xFAFAFA"  size=24 x=40 y=435]
-[chara_config ptext="chara_name_area"]
-
-どうかな？[p]
-ゲームに合わせて自分の好きなデザインを作ってくださいね[p]
-
-あと、デフォルトだとセーブやロードは画面右下のボタンからできるけど[p]
-ウィンドウをカスタマイズすれば、、、、[p]
-
-;メニューボタン非表示
-@hidemenubutton
-
-;ロールボタン追加;;;;;;;;;;;;;;
-	
-[button name="role_button" role="skip" graphic="button/skip.png" enterimg="button/skip2.png" x=35 y=610]
-
-;	オート
-[button name="role_button" role="auto" graphic="button/auto.png" enterimg="button/auto2.png" x=110 y=610]
-
-;	セーブ
-[button name="role_button" role="save" graphic="button/save.png" enterimg="button/save2.png" x=185 y=610]
-
-;ロード
-[button name="role_button" role="load" graphic="button/load.png" enterimg="button/load2.png" x=260 y=610]
-
-;クイックセーブ
-[button name="role_button" role="quicksave" graphic="button/qsave.png" enterimg="button/qsave2.png" x=335 y=610]
-
-;クイックロード
-[button name="role_button" role="quickload" graphic="button/qload.png" enterimg="button/qload2.png" x=410 y=610]
-
-;バックログ
-[button name="role_button" role="backlog" graphic="button/log.png" enterimg="button/log2.png" x=485 y=610]
-
-;メッセージウィンドウ非表示
-[button name="role_button" role="window" graphic="button/close.png" enterimg="button/close2.png" x=560 y=610]
-
-;フルスクリーン切替
-[button name="role_button" role="fullscreen" graphic="button/screen.png" enterimg="button/screen2.png" x=635 y=610]
-
-;メニュー呼び出し（※ロールボタンを使うなら不要）
-[button name="role_button" role="menu" graphic="button/menu.png" enterimg="button/menu2.png" x=710 y=610]
-
-;コンフィグ（※sleepgame を使用して config.ks を呼び出しています）
-[button name="role_button" role="sleepgame" graphic="button/sleep.png" enterimg="button/sleep2.png" x=785 y=610 storage="config.ks"]
-
-;タイトルに戻る
-[button name="role_button" role="title" graphic="button/title.png" enterimg="button/title2.png" x=860 y=610]
-
-;;ロールボタン追加終わり
-
-
-こんな風にゲームに必要な機能を画面の上に持たせることも簡単にできるよ[p]
-これはロールボタンといって、ボタンに特別な機能を持たせる事ができます。[p]
-標準で用意されているのは、[l]
-セーブ、[l]
-ロード、[l][cm]
-タイトルへ戻る、
-メニュー表示、
-メッセージ非表示、
-スキップ、
-バックログ、
-フルスクリーン切り替え、
-クイックセーブ、
-クイックロード、
-オートモード！
-[p]
-
-はぁ、はぁ[p]
-
-#
-大丈夫？[p]
-これだけあれば、ゲームを作るには困らなそうだね[p]
+おっと。これも忘れちゃいけない。[p]
+<さっきまで読んでいた新聞を拾って、後ろのポケットにねじ込む>[p]
 
 #【グリッソム教授】
-さて、もちろん音楽を鳴らすこともできるよ[l][cm]
-それじゃあ、再生するよ？[l][cm]
+<ドアを開けると身長が2メートルはあると思われるいかつい男性が立っていた>[p]
+（ん？…どこかで見た顔だな。最近見たぞ。うん、さっき見た気がする）[p]
 
-[link target=*playmusic]【１】うん。再生してください[endlink][r]
-[link target=*noplay]【２】いや。今は再生しないで！[endlink]
-[s]
-
-*playmusic
-
-[cm]
-よし、再生するよ。[l]
-@playbgm time="3000" storage=music.ogg loop=true
-徐々にフェードインしながら再生することもできるんだ[l][cm]
-
-@jump target="*common_bgm"
-
-*noplay
-[cm]
-うん。わかった。再生はしないね。[l][cm]
-また、試してみてね[l][cm]
-
-*common_bgm
-
-あ、そうそう[l][cm]
-今みたいな選択肢で物語を分岐することも、簡単にできるよ。[l][cm]
+#【？？？？？？】
+初めまして、グリッソム教授は君かね？[p]
 
 #【グリッソム教授】
-ここらで、別のキャラクターに登場してもらいましょうか[l][cm]
-やまとー[p]
-[chara_show name="ideen"]
+はい。私ですが…。[p]
 
-こんな風に。簡単です。[l][r]
-キャラクターは何人でも登場させることができるから、試してみてね。[p]
-
-#ideen
-おい、俺もう、帰っていいかな？[l][cm]
+#【サイモン元帥】
+私はネロリドール王国統合幕僚本部長兼宰相元帥、サイモン・ダイツじゃ。[p]
 
 #【グリッソム教授】
-あ、ごめんごめん。ありがとう[l][cm]
+え！？[p]
+サイモンって…あのサイモン閣下？[p]
 
-[chara_hide name="ideen"]
-
-#【グリッソム教授】
-これでティラノスクリプトの基本機能の説明は終わりだけど[p]
-どうだったかな？[p]
-
-#
-うん、これなら自分でも作れそうな気がしてきたよ[p]
+#【サイモン元帥】
+そうじゃよ。[p]
+…とはいっても簡単に信じてはもらえんじゃろうな。最近はわしを騙る輩もふえとる。[p]
 
 #【グリッソム教授】
-よかった！[p]
-最初は、ティラノスクリプト公式ページのチュートリアルをやってみると良いと思うよ！[p]
-もちろん、このゲームもティラノスクリプトで動いてるから、参考になると思うし。[p]
-ぜひ、ゲーム制作にチャレンジしてみてね[p]
-プレイしてくれてありがとう。[p]
+そうだ！さっきまで見ていた『あれ』に閣下の写真が載ってたな。[p]
 
-最後にティラノスクリプトで役立つ情報へのリンクを表示しておくから
-確認してみてね。[p]
+;#01_03
 
-[cm]
+;正解
+#【グリッソム教授】
+新聞の写真まんまだ。[p]
+これで別人なら閣下の影武者になった方が逆にお金になる！[p]
 
-*button_link
+;不正解
+#【グリッソム教授】
+後ろポケットに『あれ』をもってるんだ…。[p]
+毎朝届く『あれ」にサイモン閣下の写真が載ってたよな。[p]
+じつは今ちょうど『しんぶん』が僕の後ろポケットにあるんだよね…。[p]
+『しんぶん』を『よむ』と、この人がサイモン閣下なのか確認できそうだ。[p]
 
-@layopt layer=message0 visible=false
-@layopt layer=fix visible=false
-[anim name="grissom" left=600 time=1000]
+#【サイモン元帥】
+ふふふ…噂通り面白い男よ。[p]
+まぁ、わしに影なんぞ必要ないがな。[p]
 
-;リンクボタンを表示
-[glink text="ティラノビルダーの紹介" size=20 width=500 x=30 y=100 color=blue target=tyranobuilder ]
-[glink text="制作事例" size=20 width=500 x=30 y=160 color=blue target=example ]
-[glink text="応用テクニック" size=20 width=500 x=30 y=220 color=blue target=tech ]
-[glink text="役に立つ情報源" size=20 width=500 x=30 y=280 color=blue target=info ]
-[glink text="タグリファレンス" size=20 width=500 x=30 y=340 color=blue target=tagref ]
+#【グリッソム教授】
+ゔしゅぅ～！[p]
+<かっこつけたけど僕は口笛が吹けない>[p]
 
-[s]
+#【サイモン元帥】
+突然の質問ですまないが、君達は3年前ジャンという少年と接触したね？[p]
 
+#【グリッソム教授】
+え゛！ぺリア地区のジャン君のことですか！？[p]
+今ちょうど日記を見ていましたが…どうしてそれを知っているのですか？[p]
+
+#【サイモン元帥】
+やはりな…また突然ですまないが、少しわしの話に付き合ってくれんか？[p]
+本物のサイモンでないと、こんな話はできないじゃろう。[p]
+
+#【グリッソム教授】
+え、えぇ。[p]
+（そうだ、立ち話も何なので居間で話そう）[p]
+
+#01_04
+;正解
+#【グリッソム教授】
+…あ、中へどうぞどうぞ！[p]
+
+;不正解
+#【グリッソム教授】
+立ち話でできるほど簡単な話じゃなさそうだな…この話は。[p]
+ここじゃなんだな。[p]
+閣下をずっと立たせてるのも心苦しいな。[p]
+彼を家の中に『いれる』か。[p]
+『さいもん』閣下に立ち話をさせているのも気が引けるなあ…。[p]
+
+#【サイモン元帥】
+ありがとう。[p]
+
+#【グリッソム教授】
+あれ？でも今日はヨギギで首脳会議だって新聞に…。[p]
+
+#【サイモン元帥】
+ヨギギ自治領の総督、ありゃわしの元部下じゃ。[p]
+やつが塹壕で小便を垂らしとった頃からよぉく知っとる。[p]
+まぁ何年でも待ってくれるじゃろ。ほあっはっはっは！[p]
+
+#【グリッソム教授】
+ゔしゅぅ～！[p]
+<かっこつけたけど僕は口笛が吹けない>[p]
+
+;グリッソム教授宅・居間へ場面転換
+<アイディーンがミントクッキーとアールグレイを持ってくる>[p]
+
+#【グリッソム教授】
+この子の紅茶とクッキーは絶品ですよ。どうぞどうぞ。[p]
+
+#【サイモン元帥】
+ありがとう。君がアイディーンだね？[p]
+
+#【アイディーン】
+お、おれの事、知ってるっすか？[p]
+;驚く顔
+
+#【サイモン元帥】
+今回の訪問は君にも関係のある話じゃ。[p]
+
+#【アイディーン】
+へっ！？おれも？[p]
+
+#【サイモン元帥】
+そうじゃ。だから君もわしの話を聞いておくれ。[p]
+
+#【アイディーン】
+へ、へぇ…。[p]
+
+#【サイモン元帥】
+本題に入る前に、君たち二人が3年前ジャンと会って何をしたか教えてもらえないだろうか？[p]
+
+#【グリッソム教授】
+そんなこと言って～この家まで来るってことは全部知ってたりするんじゃないんですか？ははは…。[p]
+
+#【サイモン元帥】
+ふふん…まぁな。[p]
+じゃが、知らない事も多いじゃろう。[p]
+
+#【グリッソム教授】
+閣下からのお願いですからね。[p]
+断れる人は国王だけですよ。[p]
+
+#【サイモン元帥】
+感謝する。[p]
+
+#01_05
+#【グリッソム教授】
+そうだ。閣下と話すには『あれ』が必要だな…。[p]
+『あれ』を『もってくる』としよう…。[p]
+サイモン閣下と『にっき』を見ながら話をしよう。[p]
+『とりにいく』か、『あれ』を。[p]
+さっきの『にっき』を『さがす』んだ。[p]
+
+;正解
+#【グリッソム教授】
+では、日記を持ってき…。[p]
+
+#【アイディーン】
+ほい、せんせ。[p]
+<横にいたアイディーンが先ほどの日記を持ってきてくれていた>[p]
+
+#【グリッソム教授】
+さすが。[p]
+ 
+<朝の陽ざしが窓から差し込み、温かい居間の中央で皮のソファーに座った三人[p]
+日記と記憶を元に3年前に起こった不思議な事件を思い返す。各々のことばとイメージで>[p]
+ 
+#【グリッソム教授】
+僕がジャンと初めてことばを交わしたのは、1853年10月4日に鳴った一本の電話でした…[p]
+
+<グリッソム教授は語り始めた…>[p]
+
+
+;-----------一章終わり。
 *tyranobuilder
 
 [cm]
@@ -482,7 +488,7 @@ AppStoreやGooglePlayに向けてアプリ化して販売することもでき�
 一部の制作事例を公式サイトに乗せているのでよければ確認してくださいね。[p]
 
 [iscript]
-window.open("http://tyrano.jp/home/example");
+window.open("http:;tyrano.jp/home/example");
 [endscript]
 
 @jump target=button_link
@@ -498,7 +504,7 @@ window.open("http://tyrano.jp/home/example");
 そのサンプルを触ってみることをオススメします！[p]
 
 [iscript]
-window.open("http://tyrano.jp/home/demo");
+window.open("http:;tyrano.jp/home/demo");
 [endscript]
 
 @jump target=button_link
@@ -518,7 +524,7 @@ window.open("http://tyrano.jp/home/demo");
 このページでさらに詳細な使い方を身につけてください[p]
 
 [iscript]
-window.open("http://tyrano.jp/home/tag");
+window.open("http:;tyrano.jp/home/tag");
 [endscript]
 
 @jump target="*button_link"
