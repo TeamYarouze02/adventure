@@ -5,7 +5,9 @@
 @bg storage ="title.png" time=100
 @wait time = 200
 
-*start 
+*start
+
+;[playbgm storage="bgm01.ogg"]
 
 [button x=148 y=800 graphic="title/button_start.png" target="gamestart"]
 ;[button x=100 y=320 graphic="title/button_load.png"  role="load" ]

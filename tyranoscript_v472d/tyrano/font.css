@@ -8,6 +8,13 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: "源暎ノンブル";
+	src:url("../data/others/GenEiNombre.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
 
 @font-face {
 	font-family:"mfrules";

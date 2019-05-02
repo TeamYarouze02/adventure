@@ -93,7 +93,6 @@
 // defaultを指定すると、通常の矢印になります。
 // 独自の画像カーソルを使用したい場合はimageフォルダに配置した上で、ファイル名を指定してください
 // [cursor]タグを使って、ゲーム中に変更することもできます。
-
 ;cursorDefault = default; // 通常のマウスカーソル 
 
 // ◆ デフォルトのサウンド・動画フォーマットを指定
@@ -191,7 +190,7 @@
 // 数が多いと速度が低下したりメモリを消費しますので、必要以上に大きな数を指
 // 定しない方が良いでしょう。
 // laycount タグでシナリオ内でも変更できます。
-;numCharacterLayers = 3;
+;numCharacterLayers = 10;
 
 
 // ◆ 前景レイヤの左右中心位置指定
@@ -203,11 +202,11 @@
 // image タグあるいは img タグの pos 属性で指定する前景レイヤの 位置名 (
 // left や left_center など ) とそれぞれに対応する 中心位置 ( x 座標 ) を
 // 指定します。;scPositionX.位置名 = 中心位置; の形式で指定します。
-;scPositionX.left = 160;
-;scPositionX.left_center = 240;
-;scPositionX.center = 320;
-;scPositionX.right_center = 400;
-;scPositionX.right = 480;
+;scPositionX.left = 0;
+;scPositionX.left_center = 0;
+;scPositionX.center = 360;
+;scPositionX.right_center = 720;
+;scPositionX.right = 720;
 
 
 // 簡易な記号
@@ -230,7 +229,7 @@
 // true を指定するとメッセージレイヤ0が初期状態で表示状態になりますが、
 // false を指定すると初期状態ではすべてのメッセージレイヤは初期状態で非表示
 // になります。
-;initialMessageLayerVisible = true;
+;initialMessageLayerVisible = false;
 
 
 // ◆ 左右上下マージン
@@ -238,19 +237,19 @@
 // た場合は、メッセージ枠の表示範囲内に設定する必要があります。
 // これらは、position タグの marginl, maringt, marginr, marginb 属性に対応
 // します。
-;marginL = 8; // 左余白
-;marginT = 8; // 上余白
-;marginR = 8; // 右余白
-;marginB = 8; // 下余白
+;marginL = 0; // 左余白
+;marginT = 0; // 上余白
+;marginR = 0; // 右余白
+;marginB = 0; // 下余白
 
 
 // ◆ 初期位置
 // これらは、position タグのそれぞれ left top width height の属性に対応しま
 // す。
-;ml = 16;  // 左端位置
-;mt = 16;  // 上端位置
-;mw = 960-32;   // 幅
-;mh = 640-32;   // 高さ
+;ml = 0;  // 左端位置
+;mt = 0;  // 上端位置
+;mw = 720;   // 幅
+;mh = 1280;   // 高さ
 
 
 // ◆ 「デバッグ」
@@ -268,7 +267,7 @@
 // 不透明度を指定します。メッセージ枠用の画像が指定されている場合は無効で
 // す。
 ;frameColor = 0xffffff; // position タグの color 属性に相当
-;frameOpacity = 100;  // position タグの opacity 属性に相当
+;frameOpacity = 0;  // position タグの opacity 属性に相当
 
 
 // ◆ 自動改行/改ページ
@@ -286,19 +285,20 @@
 
 // ◆ 文字の大きさ
 // デフォルトの文字の大きさ ( 高さ ) を pixel 単位で指定します。
-;defaultFontSize = 30;  // deffont タグの size 属性に相当
+;defaultFontSize = 32;  // deffont タグの size 属性に相当
 
 
 // ◆ 行間
 // 行間を pixel 単位で指定します。
-;defaultLineSpacing = 8; // defstyle タグの linespacing 属性に相当
+;defaultLineSpacing = 10; // 
+
 
 // ◆ 字間
 // 字間を pixel 単位で指定します。
 // デフォルトは 0 で、正あるいは負のオフセットで指定します。
 // 負の数値を指定すると字間が詰まります。正の数値を指定すると字間が空きま
 // す。
-;defaultPitch = 0; // defstyle タグの pitch 属性に相当
+;defaultPitch = 1; // defstyle タグの pitch 属性に相当
 
 
 // ◆ 文字の書体
@@ -324,9 +324,11 @@
 ;defaultRubySize = 10; // deffont タグの rubysize に相当
 
 
+
 // ◆ ルビ の表示オフセット（未実装）
 // 負の数を指定するとその pixel 数分、本文に近い位置に表示されます。
 ;defaultRubyOffset = -2; // deffont タグの rubyoffset に相当
+
 
 
 // ◆ 文字のアンチエイリアス効果をするか（なめらかな文字表現）

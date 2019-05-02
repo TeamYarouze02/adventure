@@ -1,45 +1,100 @@
-;ä¸€ç•ªæœ€åˆã«å‘¼ã³å‡ºã•ã‚Œã‚‹ãƒ•ã‚¡ã‚¤ãƒ«
-[title name="ã‚°ãƒªãƒƒã‚½ãƒ ã¨ã‚¢ã‚¤ãƒ‡ã‚£ãƒ¼ãƒ³ï¼ˆä»®ï¼‰"]
+;***********************************************************
+;
+;	uƒOƒŠƒbƒ\ƒ€‚ÆƒAƒCƒfƒB[ƒ“i‰¼jv
+;
+;		Date	: 2018/11/12
+;		Ver  	: 0.00
+;
+;		Author	: yarouze
+;
+;***********************************************************
+
+;ˆê”ÔÅ‰‚ÉŒÄ‚Ño‚³‚ê‚éƒtƒ@ƒCƒ‹
+[title name = "ƒOƒŠƒbƒ\ƒ€‚ÆƒAƒCƒfƒB[ƒ“i‰¼j"]
 
 [stop_keyconfig]
 
-;ãƒ†ã‚£ãƒ©ãƒã‚¹ã‚¯ãƒªãƒ—ãƒˆãŒæ¨™æº–ã§ç”¨æ„ã—ã¦ã„ã‚‹ä¾¿åˆ©ãªãƒ©ã‚¤ãƒ–ãƒ©ãƒªç¾¤
-;ã‚³ãƒ³ãƒ•ã‚£ã‚°ã€CGã€å›æƒ³ãƒ¢ãƒ¼ãƒ‰ã‚’ä½¿ã†å ´åˆã¯å¿…é ˆ
-@call storage="tyrano.ks"
+;ƒeƒBƒ‰ƒmƒXƒNƒŠƒvƒg‚ª•W€‚Å—pˆÓ‚µ‚Ä‚¢‚é•Ö—˜‚Èƒ‰ƒCƒuƒ‰ƒŠŒQ
+;ƒRƒ“ƒtƒBƒOACGA‰ñ‘zƒ‚[ƒh‚ğg‚¤ê‡‚Í•K{
+[call storage = "tyrano.ks"]
 
-;ã‚²ãƒ¼ãƒ ã§å¿…ãšå¿…è¦ãªåˆæœŸåŒ–å‡¦ç†ã¯ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã«è¨˜è¿°ã™ã‚‹ã€‚
+;ƒQ[ƒ€‚Å•K‚¸•K—v‚È‰Šú‰»ˆ—‚Í‚±‚Ìƒtƒ@ƒCƒ‹‚É‹Lq‚·‚éB
+;js“Ç‚İ‚İBƒtƒHƒ‹ƒ_‚ğØ‚Á‚½ê‡othersˆÈ‰º‚ğw’è‚µ‚Ä‚â‚é•K—v‚ ‚èB
+[call storage = "macro.ks"]
+;ƒL[ƒtƒŒ[ƒ€ƒAƒjƒ[ƒVƒ‡ƒ“’è‹`ƒtƒ@ƒCƒ‹“Ç‚İ‚İB
+[call storage = "anime.ks"]
 
-;ãƒ•ã‚©ãƒ³ãƒˆå¤‰æ›´
-[deffont face="ã—ã£ã½ã‚Šã‚¢ãƒ³ãƒãƒƒã‚¯Medium"][resetfont]
+;ƒtƒHƒ“ƒg•ÏX
+[deffont face = "‚µ‚Á‚Û‚èƒAƒ“ƒ`ƒbƒNMedium"]
+[resetfont]
 
-;ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒœãƒƒã‚¯ã‚¹ã¯éè¡¨ç¤º
-@layopt layer="message" visible=false
+;ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚Í”ñ•\¦
+[layopt layer = "message" visible = "false"]
 
-;æœ€åˆã¯å³ä¸‹ã®ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒœã‚¿ãƒ³ã‚’éè¡¨ç¤ºã«ã™ã‚‹
+;Å‰‚Í‰E‰º‚Ìƒƒjƒ…[ƒ{ƒ^ƒ“‚ğ”ñ•\¦‚É‚·‚é
 [hidemenubutton]
 
-;tempura_cameraå‘¼ã³å‡ºã—ã€‚
-[plugin name="tempura_camera" layer=base,0,1,2 manager=true]
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;***********************************************************
 ;
-;èµ·å‹•æ™‚ã‚·ã‚¹ãƒ†ãƒ å¤‰æ•°
+;ƒvƒ‰ƒOƒCƒ“
 ;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;***********************************************************
 
-;ã‚¹ã‚³ã‚¢ç”¨ã‚·ã‚¹ãƒ†ãƒ å¤‰æ•° sf.score
-;åˆæœŸã‚¹ã‚³ã‚¢:1000000000
-;ã‚«ãƒ³ã‚¹ãƒˆ:99999999999
-[eval exp="sf.score=100000000000"]
+;tempura_cameraƒvƒ‰ƒOƒCƒ“
+;[plugin name=tempura_camera layer=0,1,2,3,4,5 manager=true]
 
-;å›ç­”å¯èƒ½å›æ•° sf.comm
-;ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ:3
-;æœ€å¤§:ç„¡é™ï¼ˆå€¤ã¯-1ï¼‰
-[eval exp="sf.comm=3"]
+;forƒvƒ‰ƒOƒCƒ“
+[plugin name = "for"]
 
-;ã‚¿ã‚¤ãƒˆãƒ«ç”»é¢ã¸ç§»å‹•
-@jump storage="title.ks"
+;***********************************************************
+;
+;‹N“®ƒVƒXƒeƒ€•Ï”
+;
+;***********************************************************
+
+;ƒXƒRƒA—pƒVƒXƒeƒ€•Ï” sf.score
+;‰ŠúƒXƒRƒA:1000000000
+;ƒJƒ“ƒXƒg:99999999999
+[eval exp = "sf.score = 100000000000"]
+
+;‚«o‚µ‰ŠúˆÊ’u
+;ƒOƒŠƒbƒ\ƒ€‹³ö
+[eval exp = "tf.GRISSOM_BLNINITY = 500"] 
+[eval exp = "tf.GRISSOM_BLNINITX = 500"] 
+
+;ƒAƒCƒfƒB[ƒ“
+[eval exp = "tf.IDEEN_BLNINITY = 600"] 
+[eval exp = "tf.IDEEN_BLNINITX = 400"] 
+
+;‚«o‚µ—pŠeí•Ï”
+;‚«o‚µƒCƒ“ƒfƒbƒNƒX”Ô†
+[eval exp = "sf.blnIndex = 1"]
+;ƒƒbƒZ[ƒWƒŒƒCƒ„ƒCƒ“ƒfƒbƒNƒX”Ô†
+[eval exp = "sf.mesIndex = 0"]
+;ƒƒbƒZ[ƒWƒŒƒCƒ„–¼Ì
+[eval exp = "sf.mesName"]
+;‚«o‚µƒIƒuƒWƒFƒNƒg–¼ÌŠi”[—p•Ï”
+[eval exp = "sf.blnName"]
+;‚«o‚µÀ•WŠi”[—p˜A‘z”z—ñ
+[eval exp = "sf.blnArray = {}"]
+;‚«o‚µoŒ»ˆÚ“®À•WŠi”[—p
+[eval exp = "sf.blnMovX = 0"]
+[eval exp = "sf.blnMovY = 0"]
+;‚«o‚µ‰Ÿ‚µã‚°ˆÚ“®À•WŠi”[—p
+[eval exp = "sf.blnMovUpAddX = 0"]
+[eval exp = "sf.blnMovUpAddY = 0"]
+
+;‚«o‚µ‚Ì¶‰EU‚ê(‚±‚ê‚ğxÀ•W‚ÉŠ|‚¯‚é)
+[eval exp = "tf.blnShake = -1"]
+
+;‰ñ“š‰Â”\‰ñ” sf.comm
+;ƒfƒtƒHƒ‹ƒg:3
+;Å‘å:–³ŒÀi’l‚Í-1j
+[eval exp = "sf.comm = 3"]
+
+;ƒ^ƒCƒgƒ‹‰æ–Ê‚ÖˆÚ“®
+;[jump storage=title.ks]
+[jump storage = "scene1.ks"]
 
 [s]
-
-
